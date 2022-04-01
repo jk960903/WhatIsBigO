@@ -6,6 +6,7 @@
 * [브라우저에 URL을 입력했을 때 나타나는 과정](#브라우저에-url을-입력했을-때-나타나는-과정)
 * [WEB-Server와 WAS차이](#ws-was)
 * [REST 란](#what-is-rest)
+* [DNS 란](#dns)
 
 ---
 
@@ -162,3 +163,37 @@ HTTP Method는 클라이언트가 웹 서버에게 사용자 요청의 목적이
  * 대상 리소스에 대한 경로를 따라 메시지 루프백 테스트 수행
 
 
+### 브라우저에 url을 입력했을 때 나타나는 과정
+
+1. 브라우저의 URL 파싱
+ - URL을 입력 받은 브라우저는 URL의 구조를 해석하여 어떤 프로토콜로 어떤 도메인으로 어떤 보트로 보낼지 해석
+
+2. HSTS(HTTP Strict Transport Security) 
+ -HTTP를 허용하지 않고 HTTPS를 사용하는 연결만 허용하는 기능 HTTP로 요청이 왔다면 응답 헤더에 Strict Transport Security 라는 필드를 포함하여 응답 확인한 브라우저는 해당 서버에 요청할 때 HTTPS만을 통해 통신한다. 자신의 HSTS캐시에 해당 URL을 저장
+
+3. URL을 IP 주소로 변환
+ - 인터넷 상에서 컴퓨터가 읽을 수 있는 ip주소로 변환해야 서로 통신이 가능 자신의 로컬 hosts 파일과 브라우저 캐시에 해당 url 이 존재하는지 확인 -> 도메인 주소를 ip주소로 변환해주는 DNS 서버에 요청하여 URL을 ip로 변환
+ 
+4. 라우터를 통해 해당 서버의 게이트웨이까지 이동
+
+5. ARP를 통해 IP주소를 MAC Address로 변환
+
+6. 대상 서버와 TCP 소켓 연결
+
+8. HTTP(HTTPS) 프로토콜로 요청 및 응답
+
+
+10. 브라우저에서 응답을 해석
+
+
+### WS WAS
+
+**WS**
+
+**WAS**
+
+
+### What is REST
+
+### DNS
+ 사람이 읽을 수 있는 도메인 이름 Ex) www.naver.com 같은 것을 DNS
